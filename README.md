@@ -60,13 +60,13 @@ kunuzclone/
 ### 1️⃣ Repository ni clone qiling
 
 ```bash
-git clone https://github.com/USERNAME/kunuzclone.git
+git clone https://github.com/umidjon3455/KunUzClone_5.git
 ```
 
 ### 2️⃣ Papkaga kiring
 
 ```bash
-cd kunuzclone
+cd KunUzClone_5
 ```
 
 ### 3️⃣ Virtual environment yarating
