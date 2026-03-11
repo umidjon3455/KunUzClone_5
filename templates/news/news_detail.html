@@ -10,95 +10,63 @@
 <div class="row">
 
 <!-- LEFT SIDE -->
-<div class="col-lg-8">
-
-<div class="position-relative mb-3">
-
-{% if news.image %}
-<img class="img-fluid w-100" src="{{ news.image.url }}" style="object-fit:cover;">
-{% endif %}
-
-<div class="bg-white border border-top-0 p-4">
-
-<div class="mb-3">
-
-<span class="badge badge-primary p-2">
-{{ news.category }}
-</span>
-
-<span class="ml-2 text-muted">
-{{ news.publish_time }}
-</span>
-
-</div>
-
-<h2 class="mb-3 text-secondary text-uppercase font-weight-bold">
-{{ news.title }}
-</h2>
-
-<p style="font-size:18px;">
-{{ news.body }}
-</p>
-
-</div>
-
-</div>
-
-</div>
+    <div class="col-lg-8">
+        <div class="position-relative mb-3">
+            {% if news.image %}
+            <img class="img-fluid w-100" src="{{ news.image.url }}" style="object-fit:cover;">
+            {% endif %}
+            <div class="bg-white border border-top-0 p-4">
+                <div class="mb-3">
+                    <span class="badge badge-primary p-2">
+                        {{ news.category }}
+                    </span>
+                    <span class="ml-2 text-muted">
+                        {{ news.publish_time }}
+                    </span>
+                </div>
+                <h2 class="mb-3 text-secondary text-uppercase font-weight-bold">
+                    {{ news.title }}
+                </h2>
+                <p style="font-size:18px;">
+                    {{ news.body }}
+                </p>
+            </div>
+        </div>
+    </div>
 
 
 <!-- RIGHT SIDE -->
-<div class="col-lg-4">
-
-<div class="mb-3">
-
-<div class="section-title mb-0">
-<h4 class="m-0 text-uppercase font-weight-bold">
-Tavsiya etamiz
-</h4>
-</div>
-
-<div class="bg-white border border-top-0 p-3">
-
-{% for item in news_list|slice:":4" %}
-
-<div class="d-flex align-items-center bg-white mb-3" style="height:110px;">
-
-<img class="img-fluid"
-style="width:110px;height:110px;object-fit:cover;"
-src="{{ item.image.url }}">
-
-<div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-
-<div class="mb-2">
-
-<a class="badge badge-primary p-1"
-href="{{ item.get_absolute_url }}">
-{{ item.category }}
-</a>
-
-</div>
-
-<a class="h6 m-0 text-secondary text-uppercase font-weight-bold"
-href="{{ item.get_absolute_url }}">
-{{ item.title|truncatewords:6 }}
-</a>
-
-</div>
-
-</div>
-
-{% endfor %}
-
-</div>
-
-</div>
-
-</div>
-
-
+    <div class="col-lg-4">
+        <div class="mb-3">
+            <div class="section-title mb-0">
+                <h4 class="m-0 text-uppercase font-weight-bold">
+                    Tavsiya etamiz
+                </h4>
+            </div>
+            <div class="bg-white border border-top-0 p-3">
+                {% for item in news_list|slice:":4" %}
+                <div class="d-flex align-items-center bg-white mb-3" style="height:110px;">
+                    <img class="img-fluid"
+                         style="width:110px;height:110px;object-fit:cover;"
+                         src="{{ item.image.url }}">
+                    <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+                        <div class="mb-2">
+                            <a class="badge badge-primary p-1"
+                               href="{{ item.get_absolute_url }}">
+                                {{ item.category }}
+                            </a>
+                        </div>
+                        <a class="h6 m-0 text-secondary text-uppercase font-weight-bold"
+                           href="{{ item.get_absolute_url }}">
+                            {{ item.title|truncatewords:6 }}
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </div>
 </div>
 </div>
-
 {% endblock content %}

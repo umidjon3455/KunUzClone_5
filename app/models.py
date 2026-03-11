@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import render
 from django.urls import reverse
 from django.utils import timezone
 
@@ -46,3 +47,29 @@ class News(models.Model):
         return self.title
 
 
+def contact(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        subject = request.POST.get("subject")
+        message = request.POST.get("message")
+
+        Contact.objects.create(
+            name=name,
+            email=email,
+            subject=subject,
+            message=message
+        )
+
+    return render(request, "contact.html")
+
+from django.db import models
+
+class Contact(models.Model):
+    name = models.CharField(max_length=200)
+    email = models.EmailField()
+    subject = models.CharField(max_length=200)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.name

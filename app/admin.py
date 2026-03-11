@@ -1,6 +1,8 @@
+from .models import Contact, News, Category
 from django.contrib import admin
+from .models import Contact
 
-from app.models import News, Category
+admin.site.register(Contact)
 
 # Register your models here.
 # 1-usul

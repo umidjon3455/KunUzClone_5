@@ -208,3 +208,24 @@ def contact_page(request):
     }
 
     return render(request, "news/contact.html", context=context)
+
+from django.shortcuts import render, redirect
+from .models import Contact
+
+def contact(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        subject = request.POST.get("subject")
+        message = request.POST.get("message")
+
+        Contact.objects.create(
+            name=name,
+            email=email,
+            subject=subject,
+            message=message
+        )
+
+        return redirect("contact")
+
+    return render(request, "news/contact.html")
