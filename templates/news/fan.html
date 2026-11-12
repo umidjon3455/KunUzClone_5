@@ -132,7 +132,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="{{ fan_news_1.image.url }}" style="object-fit: cover;">
+                                <img class="img-fluid w-100" src="{% if fan_news_1.image %}{{ fan_news_1.image.url }}{% else %}{% static 'img/news-700x435-1.jpg' %}{% endif %}" style="object-fit: cover;">
                                 <div class="bg-white border border-top-0 p-4">
                                     <div class="mb-2">
                                         <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
@@ -140,7 +140,7 @@
                                         <a class="text-body" href=""><small>{{ fan_news_1.publish_time }}</small></a>
                                     </div>
                                     <a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold" href="{{ fan_news_1.get_absolute_url }}">{{ fan_news_1.title | truncatewords:10 }}</a>
-                                    <p class="m-0">{{ sport_news_1.body | truncatewords:15 }}</p>
+                                    <p class="m-0">{{ fan_news_1.body | truncatewords:15 }}</p>
                                 </div>
                                 <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
                                     <div class="d-flex align-items-center">
@@ -156,7 +156,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="{{ fan_news_2.image.url }}" style="object-fit: cover;">
+                                <img class="img-fluid w-100" src="{% if fan_news_2.image %}{{ fan_news_2.image.url }}{% else %}{% static 'img/news-700x435-1.jpg' %}{% endif %}" style="object-fit: cover;">
                                 <div class="bg-white border border-top-0 p-4">
                                     <div class="mb-2">
                                         <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
@@ -164,7 +164,7 @@
                                         <a class="text-body" href=""><small>{{ fan_news_2.publish_time }}</small></a>
                                     </div>
                                     <a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold" href="{{ fan_news_2.get_absolute_url }}">{{ fan_news_2.title | truncatewords:10 }}</a>
-                                    <p class="m-0">{{ sport_news_2.body | truncatewords:15 }}</p>
+                                    <p class="m-0">{{ fan_news_2.body | truncatewords:15 }}</p>
                                 </div>
                                 <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
                                     <div class="d-flex align-items-center">
@@ -183,7 +183,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="{{ fan_news_3.image.url }}" style="object-fit: cover;">
+                                <img class="img-fluid w-100" src="{% if fan_news_3.image %}{{ fan_news_3.image.url }}{% else %}{% static 'img/news-700x435-1.jpg' %}{% endif %}" style="object-fit: cover;">
                                 <div class="bg-white border border-top-0 p-4">
                                     <div class="mb-2">
                                         <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
@@ -206,7 +206,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="{{ fan_news_4.image.url }}" style="object-fit: cover;">
+                                <img class="img-fluid w-100" src="{% if fan_news_4.image %}{{ fan_news_4.image.url }}{% else %}{% static 'img/news-700x435-1.jpg' %}{% endif %}" style="object-fit: cover;">
                                 <div class="bg-white border border-top-0 p-4">
                                     <div class="mb-2">
                                         <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
@@ -230,7 +230,7 @@
                            {% for news in fan_news_list %}
                         <div class="col-lg-6">
                             <div class="d-flex align-items-center bg-white mb-3" style="height:110px;">
-                                <img src="{{ news.image.url }}" style="width:110px; height:110px; object-fit:cover;">
+                                <img src="{% if news.image %}{{ news.image.url }}{% else %}{% static 'img/news-700x435-1.jpg' %}{% endif %}" style="width:110px; height:110px; object-fit:cover;">
                                 <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
                                     <div class="mb-2">
                                           <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">Fan-Texnika</a>
@@ -390,7 +390,7 @@
                     <div class="bg-white border border-top-0 p-3">
                         {% for news in fan_news %}
                         <div class="d-flex align-items-center bg-white mb-3" style="height:110px;">
-                            <img src="{{ news.image.url }}" style="width:110px;height:110px;object-fit:cover;">
+                            <img src="{% if news.image %}{{ news.image.url }}{% else %}{% static 'img/news-700x435-1.jpg' %}{% endif %}" style="width:110px;height:110px;object-fit:cover;">
                             <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
                                 <div class="mb-2">
                                     <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2">
