@@ -1,163 +1,107 @@
-# Kun.uz Clone (Django)
+# KunUzClone_5
 
-**Kun.uz Clone** — bu Django framework yordamida yaratilgan yangiliklar sayti.
-Loyiha O‘zbekistondagi mashhur yangiliklar portali Kun.uz dizayni va funksiyalaridan ilhomlanib ishlab chiqilgan.
+Django yordamida yaratilgan yangiliklar sayti. Saytda yangiliklar kategoriyalar bo‘yicha ko‘rsatiladi va Django Admin orqali boshqariladi.
 
----
+## Texnologiyalar
 
-## 🚀 Features
+- Python 3.11
+- Django 5.2 LTS
+- SQLite
+- Pillow
+- python-dotenv
+- HTML, CSS, Bootstrap va JavaScript
 
-* 📰 Yangiliklar ro‘yxati (News list)
-* 📄 Yangiliklar batafsil sahifasi
-* 🖼️ Rasm bilan yangilik qo‘shish
-* 🗂️ Kategoriyalar bo‘yicha yangiliklar
-* 🔥 Trending / Popular news
-* 🎞️ Asosiy yangiliklar slideri
-* 🛠️ Django Admin orqali yangiliklarni boshqarish
-* 📱 Responsive dizayn (telefon va kompyuter uchun)
+## Loyiha tuzilishi
 
----
-
-## 🛠️ Technologies
-
-Loyihada quyidagi texnologiyalar ishlatilgan:
-
-* 🐍 Python
-* 🌐 Django
-* 🎨 HTML5
-* 🎨 CSS3
-* ⚡ Bootstrap
-* 🗄️ SQLite
-* 🖼️ Pillow (rasm bilan ishlash uchun)
-
----
-
-## 📂 Project Structure
-
-```
-kunuzclone/
-│
-├── news/
+```text
+KunUzClone_5/
+├── app/
+│   ├── migrations/
+│   ├── admin.py
 │   ├── models.py
-│   ├── views.py
+│   ├── tests.py
 │   ├── urls.py
-│
-├── templates/
-│
-├── static/
-│
+│   └── views.py
+├── config/
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+│   └── wsgi.py
 ├── media/
-│
+├── static/
+├── templates/
+├── .env.example
+├── .gitignore
 ├── manage.py
-│
-└── db.sqlite3
+└── requirements.txt
 ```
 
----
+## O‘rnatish (Windows / PowerShell)
 
-## ⚙️ Installation
+Python 3.11 o‘rnatilgan bo‘lishi kerak.
 
-### 1️⃣ Repository ni clone qiling
+1. Repozitoriyani yuklab oling:
 
-```bash
+```powershell
 git clone https://github.com/umidjon3455/KunUzClone_5.git
-```
-
-### 2️⃣ Papkaga kiring
-
-```bash
 cd KunUzClone_5
 ```
 
-### 3️⃣ Virtual environment yarating
+2. Virtual muhit yarating va faollashtiring:
 
-```bash
-python -m venv venv
+```powershell
+py -3.11 -m venv .venv
+.venv\Scripts\Activate.ps1
 ```
 
-### 4️⃣ Virtual environment ni yoqing
+3. Kutubxonalarni o‘rnating:
 
-Windows:
-
-```bash
-venv\Scripts\activate
+```powershell
+python -m pip install --upgrade pip
+pip install -r requirements.txt
 ```
 
-Mac / Linux:
+4. Muhit faylini yarating:
 
-```bash
-source venv/bin/activate
+```powershell
+Copy-Item .env.example .env
 ```
 
-### 5️⃣ Kerakli kutubxonalarni o‘rnating
+5. Maxfiy kalit yarating:
 
-```bash
-pip install django
-pip install pillow
+```powershell
+python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
 ```
 
-### 6️⃣ Migratsiya qiling
+Chiqqan qiymatni `.env` faylidagi `DJANGO_SECRET_KEY` qatoriga joylashtiring. Lokal ishga tushirish uchun `DJANGO_DEBUG=True` qoldirilishi mumkin. `.env` faylini hech qachon GitHub'ga yubormang.
 
-```bash
+6. Ma’lumotlar bazasini tayyorlang:
+
+```powershell
 python manage.py migrate
-```
-
-### 7️⃣ Serverni ishga tushiring
-
-```bash
-python manage.py runserver
-```
-
-Brauzerda oching:
-
-```
-http://127.0.0.1:8000
-```
-
----
-
-## 🔐 Admin Panel
-
-Admin panelga kirish uchun:
-
-```
-http://127.0.0.1:8000/admin
-```
-
-Admin user yaratish:
-
-```bash
 python manage.py createsuperuser
 ```
 
----
+7. Serverni ishga tushiring:
 
-## 📸 Screenshots
-
-Bu yerga loyiha rasmlarini qo‘shishingiz mumkin.
-
-Misol:
-
-```
-![Homepage](screenshot/home.png)
+```powershell
+python manage.py runserver
 ```
 
----
+Sayt: http://127.0.0.1:8000/
 
-## 📌 Future Improvements
+Admin: http://127.0.0.1:8000/admin/
 
-* 🔍 Yangilik qidirish (Search system)
-* 💬 Kommentariya tizimi
-* 👤 Foydalanuvchi registratsiyasi
-* 🌙 Dark mode
-* 📊 Ko‘rish statistikasi
+## Tekshiruvlar
 
----
+```powershell
+python manage.py check
+python manage.py makemigrations --check --dry-run
+python manage.py test
+```
 
-## 👨‍💻 Author
+## Eslatma
 
-**Umidjon Abdullayev**
-
-GitHub:
-https://github.com/umidjon3455
-..
+- `.env`, virtual muhit, SQLite bazasi va Python cache fayllari Git'ga kiritilmaydi.
+- Yangilik rasmlari `media/` ichida saqlanadi.
+- Hostingga joylashda `DJANGO_DEBUG=False` va `DJANGO_ALLOWED_HOSTS` qiymatlarini hosting domeniga moslang.
