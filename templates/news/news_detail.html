@@ -14,9 +14,7 @@
 
 <div class="position-relative mb-3">
 
-{% if news.image %}
 <img class="img-fluid w-100" src="{% if news.image %}{{ news.image.url }}{% else %}{% static 'img/news-700x435-1.jpg' %}{% endif %}" style="object-fit:cover;">
-{% endif %}
 
 <div class="bg-white border border-top-0 p-4">
 
