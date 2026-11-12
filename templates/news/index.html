@@ -128,7 +128,7 @@
                 {% for news in minix_news %}
                 <div class="position-relative overflow-hidden" style="height: 500px;">
                     <img class="img-fluid w-100 h-100"
-                         src="{{ news.image.url }}"
+                         src="{% if news.image %}{{ news.image.url }}{% else %}{% static 'img/news-700x435-1.jpg' %}{% endif %}"
                          style="object-fit: cover;">
                     <div class="overlay">
                         <div class="mb-2">
@@ -151,7 +151,7 @@
                 <div class="col-md-6 p-1">
                     <div class="position-relative overflow-hidden" style="height: 250px;">
                         <img class="img-fluid w-100 h-100"
-                             src="{{ news.image.url }}"
+                             src="{% if news.image %}{{ news.image.url }}{% else %}{% static 'img/news-700x435-1.jpg' %}{% endif %}"
                              style="object-fit: cover;">
                         <div class="overlay">
                             <div class="mb-2">
@@ -208,7 +208,7 @@
             <div class="owl-carousel news-carousel carousel-item-4 position-relative">
                 {% for news in jahon_news %}
                 <div class="position-relative overflow-hidden" style="height: 300px;">
-                    <img class="img-fluid h-100" src="{{ news.image.url }}" style="object-fit: cover;">
+                    <img class="img-fluid h-100" src="{% if news.image %}{{ news.image.url }}{% else %}{% static 'img/news-700x435-1.jpg' %}{% endif %}" style="object-fit: cover;">
                     <div class="overlay">
                         <div class="mb-2">
                             <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
@@ -239,7 +239,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="{{ fan_news1.image.url }}" style="object-fit: cover;">
+                                <img class="img-fluid w-100" src="{% if fan_news1.image %}{{ fan_news1.image.url }}{% else %}{% static 'img/news-700x435-1.jpg' %}{% endif %}" style="object-fit: cover;">
                                 <div class="bg-white border border-top-0 p-4">
                                     <div class="mb-2">
                                         <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
@@ -264,7 +264,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="{{ fan_news2.image.url }}" style="object-fit: cover;">
+                                <img class="img-fluid w-100" src="{% if fan_news2.image %}{{ fan_news2.image.url }}{% else %}{% static 'img/news-700x435-1.jpg' %}{% endif %}" style="object-fit: cover;">
                                 <div class="bg-white border border-top-0 p-4">
                                     <div class="mb-2">
                                         <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
@@ -292,7 +292,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="{{ fan_news3.image.url }}" style="object-fit: cover;">
+                                <img class="img-fluid w-100" src="{% if fan_news3.image %}{{ fan_news3.image.url }}{% else %}{% static 'img/news-700x435-1.jpg' %}{% endif %}" style="object-fit: cover;">
                                 <div class="bg-white border border-top-0 p-4">
                                     <div class="mb-2">
                                         <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
