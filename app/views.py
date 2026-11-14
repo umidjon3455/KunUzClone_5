@@ -56,7 +56,7 @@ def category_page(request, category_name, template_name, prefix):
 
     context = {
         "news_list": News.published.all(),
-        f"{prefix}_news_list": News.published.all(),
+        f"{prefix}_news_list": category_news,
         f"{prefix}_news": category_news,
     }
 
