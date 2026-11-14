@@ -8,7 +8,7 @@
     <h1>Barcha yangiliklar sahifasi</h1>
 
   {% for news in news_list %}
-    <a href="{% url 'news_detail_page' news.pk %}">
+    <a href="{% url 'news_detail_page' news.slug %}">
       <li>{{ news.title }}</li>
       <br>
     </a>
