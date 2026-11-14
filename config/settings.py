@@ -14,9 +14,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / ".env")
 
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
-if not SECRET_KEY:
+if not SECRET_KEY or SECRET_KEY == "replace-this-with-a-new-secret-key":
     raise ImproperlyConfigured(
-        "DJANGO_SECRET_KEY .env faylida mavjud emas!"
+        "Set a unique DJANGO_SECRET_KEY in your .env file or hosting environment."
     )
 
 DEBUG = os.getenv("DJANGO_DEBUG", "False").lower() == "true"
