@@ -15,7 +15,7 @@
 <div class="position-relative mb-3">
 
 {% if news.image %}
-<img class="img-fluid w-100" src="{{ news.image.url }}" style="object-fit:cover;">
+{% if news.image %}<img class="img-fluid w-100" src="{{ news.image.url }}" style="object-fit:cover;">{% endif %}
 {% endif %}
 
 <div class="bg-white border border-top-0 p-4">
@@ -64,9 +64,9 @@ Tavsiya etamiz
 
 <div class="d-flex align-items-center bg-white mb-3" style="height:110px;">
 
-<img class="img-fluid"
+{% if item.image %}<img class="img-fluid"
 style="width:110px;height:110px;object-fit:cover;"
-src="{{ item.image.url }}">
+src="{{ item.image.url }}">{% endif %}
 
 <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
 

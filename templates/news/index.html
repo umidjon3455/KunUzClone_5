@@ -10,7 +10,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="{% static 'img/favicon.ico}' %" rel="icon">
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -127,9 +127,9 @@
             <div class="owl-carousel main-carousel position-relative">
                 {% for news in minix_news %}
                 <div class="position-relative overflow-hidden" style="height: 500px;">
-                    <img class="img-fluid w-100 h-100"
+                    {% if news.image %}<img class="img-fluid w-100 h-100"
                          src="{{ news.image.url }}"
-                         style="object-fit: cover;">
+                         style="object-fit: cover;">{% endif %}
                     <div class="overlay">
                         <div class="mb-2">
                             <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
@@ -150,9 +150,9 @@
                 {% for news in uzb_news %}
                 <div class="col-md-6 p-1">
                     <div class="position-relative overflow-hidden" style="height: 250px;">
-                        <img class="img-fluid w-100 h-100"
+                        {% if news.image %}<img class="img-fluid w-100 h-100"
                              src="{{ news.image.url }}"
-                             style="object-fit: cover;">
+                             style="object-fit: cover;">{% endif %}
                         <div class="overlay">
                             <div class="mb-2">
                                 <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
@@ -208,12 +208,12 @@
             <div class="owl-carousel news-carousel carousel-item-4 position-relative">
                 {% for news in jahon_news %}
                 <div class="position-relative overflow-hidden" style="height: 300px;">
-                    <img class="img-fluid h-100" src="{{ news.image.url }}" style="object-fit: cover;">
+                    {% if news.image %}<img class="img-fluid h-100" src="{{ news.image.url }}" style="object-fit: cover;">{% endif %}
                     <div class="overlay">
                         <div class="mb-2">
                             <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
                                 href="">Jahon</a>
-                            <a class="text-white" href=""><small>Feb. 25, 2026, 4:04 p.m.</small></a>
+                            <a class="text-white" href=""><small>{{ news.publish_time }}</small></a>
                         </div>
                         <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="{{ news.get_absolute_url }}">{{ news.title | truncatewords:7}}</a>
                     </div>
@@ -234,12 +234,12 @@
                         <div class="col-12">
                             <div class="section-title">
                                 <h4 class="m-0 text-uppercase font-weight-bold">Fan-Texnika yangiliklari</h4>
-                                <a class="text-secondary font-weight-medium text-decoration-none" href="">View All</a>
+                                <a class="text-secondary font-weight-medium text-decoration-none" href="{% url 'fan' %}">View All</a>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="{{ fan_news1.image.url }}" style="object-fit: cover;">
+                                {% if fan_news1.image %}<img class="img-fluid w-100" src="{{ fan_news1.image.url }}" style="object-fit: cover;">{% endif %}
                                 <div class="bg-white border border-top-0 p-4">
                                     <div class="mb-2">
                                         <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
@@ -247,8 +247,7 @@
                                         <a class="text-body" href=""><small>{{ fan_news1.publish_time }}</small></a>
                                     </div>
                                     <a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold" href="{{ fan_news1.get_absolute_url }}">{{ fan_news1.title }}</a>
-                                    <p class="m-0">Dolor lorem eos dolor duo et eirmod sea. Dolor sit magna
-                                        rebum clita rebum dolor stet amet justo</p>
+                                    <p class="m-0">{{ fan_news1.body|truncatewords:15 }}</p>
                                 </div>
                                 <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
                                     <div class="d-flex align-items-center">
@@ -264,7 +263,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="{{ fan_news2.image.url }}" style="object-fit: cover;">
+                                {% if fan_news2.image %}<img class="img-fluid w-100" src="{{ fan_news2.image.url }}" style="object-fit: cover;">{% endif %}
                                 <div class="bg-white border border-top-0 p-4">
                                     <div class="mb-2">
                                         <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
@@ -272,8 +271,7 @@
                                         <a class="text-body" href=""><small>{{ fan_news2.publish_time }}</small></a>
                                     </div>
                                     <a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold" href="{{ fan_news2.get_absolute_url }}">{{ fan_news2.title }}</a>
-                                    <p class="m-0">Dolor lorem eos dolor duo et eirmod sea. Dolor sit magna
-                                        rebum clita rebum dolor stet amet justo</p>
+                                    <p class="m-0">{{ fan_news2.body|truncatewords:15 }}</p>
                                 </div>
                                 <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
                                     <div class="d-flex align-items-center">
@@ -292,14 +290,14 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="{{ fan_news3.image.url }}" style="object-fit: cover;">
+                                {% if fan_news3.image %}<img class="img-fluid w-100" src="{{ fan_news3.image.url }}" style="object-fit: cover;">{% endif %}
                                 <div class="bg-white border border-top-0 p-4">
                                     <div class="mb-2">
                                         <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                            href="">Fan-texnika</a>
-                                        <a class="text-body" href=""><small>Feb. 25, 2026, 4:04 p.m.</small></a>
+                                            href="{% url 'fan' %}">Fan-texnika</a>
+                                        <a class="text-body" href=""><small>{{ fan_news3.publish_time }}</small></a>
                                     </div>
-                                    <a class="h4 d-block mb-0 text-secondary text-uppercase font-weight-bold" href="{{ fan_news3.get_absolute_url }}">Honda o‘zining birinchi xususiy samolyotini taqdim qildi: u mustaqil ravishda qo‘na oladi}</a>
+                                    <a class="h4 d-block mb-0 text-secondary text-uppercase font-weight-bold" href="{{ fan_news3.get_absolute_url }}">{{ fan_news3.title }}</a>
                                 </div>
                                 <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
                                     <div class="d-flex align-items-center">
@@ -315,14 +313,14 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="{% static 'img/fan1.jpg' %}" style="object-fit: cover;">
+                                {% if fan_news4.image %}<img class="img-fluid w-100" src="{{ fan_news4.image.url }}" style="object-fit: cover;">{% endif %}
                                 <div class="bg-white border border-top-0 p-4">
                                     <div class="mb-2">
                                         <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
                                             href="">Fan-texnika</a>
-                                        <a class="text-body" href="">Feb. 11, 2026, 4:04 p.m.<small></small></a>
+                                        <a class="text-body" href="">{{ fan_news4.publish_time }}<small></small></a>
                                     </div>
-                                    <a class="h4 d-block mb-0 text-secondary text-uppercase font-weight-bold" href="{{ fan_news4.get_absolute_url }}">Abu-Dabi shayxi “sun’iy intellekt poytaxti”ni qurish uchun Trampga tegishli kompaniyaga 500 mln dollar sarmoya kiritgan - OAV</a>
+                                    <a class="h4 d-block mb-0 text-secondary text-uppercase font-weight-bold" href="{{ fan_news4.get_absolute_url }}">{{ fan_news4.title }}</a>
                                 </div>
                                 <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
                                     <div class="d-flex align-items-center">
