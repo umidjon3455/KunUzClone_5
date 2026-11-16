@@ -17,6 +17,7 @@
 - Django 5.2
 - SQLite
 - Pillow
+- python-dotenv
 - HTML, CSS va Bootstrap
 
 ## O'rnatish
@@ -49,14 +50,21 @@
    pip install -r requirements.txt
    ```
 
-4. Migratsiyalarni bajaring va serverni ishga tushiring:
+4. `.env.example` faylidan nusxa olib, nusxasini `.env` deb nomlang. `DJANGO_SECRET_KEY` qiymatini yangi, maxfiy kalitga almashtiring. `DJANGO_DEBUG=True` faqat mahalliy ishlab chiqish uchun.
+
+   **PowerShell:**
+   ```powershell
+   Copy-Item .env.example .env
+   ```
+
+5. Migratsiyalarni bajaring va serverni ishga tushiring:
 
    ```bash
    python manage.py migrate
    python manage.py runserver
    ```
 
-5. Saytni `http://127.0.0.1:8000/` manzilida oching.
+6. Saytni `http://127.0.0.1:8000/` manzilida oching.
 
 ## Admin panel
 
@@ -67,6 +75,12 @@ python manage.py createsuperuser
 ```
 
 Admin panel: `http://127.0.0.1:8000/admin/`
+
+## Xavfsizlik eslatmasi
+
+- Haqiqiy `.env` faylini GitHub'ga yuklamang.
+- Agar avvalgi `SECRET_KEY` ommaviy repozitoriyga yuborilgan bo'lsa, uni bekor qilib, yangisini yarating.
+- Production muhitida `DJANGO_DEBUG=False` va `DJANGO_ALLOWED_HOSTS` qiymatlarini hosting domeningizga moslang.
 
 ## Muallif
 
